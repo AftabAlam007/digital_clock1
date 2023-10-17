@@ -9,14 +9,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import com.formdev.flatlaf.IntelliJTheme;
+
 import javax.swing.JLabel;
 
 public class Digital_clock {
 
 	private JFrame frame;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField;
+    JTextField textField_1;
+	JTextField textField_2;
+	JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -38,12 +41,16 @@ public class Digital_clock {
 	 * Create the application.
 	 */
 	public Digital_clock() {
+		
+		//IntelliJTheme.setup(Digital_clock.class.getResourceAsStream("dark theams.json"));
+		
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 546, 300);
@@ -107,5 +114,8 @@ public class Digital_clock {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(319, 84, 68, 112);
 		panel.add(lblNewLabel_1);
+		
+		new ClockThread(this);
+		
 	}
 }
